@@ -1,4 +1,17 @@
-var myArrOfCards = []
+var myArrOfCards = [];
+var images = {
+    1: '<i class="fas fa-car"></i>',
+    2: '<i class="fas fa-apple-alt"></i>',
+    3: '<i class="fas fa-baby"></i>',
+    4: '<i class="fas fa-baby-carriage"></i>',
+    5: '<i class="fas fa-bath"></i>',
+    6: '<i class="fas fa-bed"></i>',
+    7: '<i class="fas fa-basketball-ball"></i>',
+    8: '<i class="fas fa-baseball-ball"></i>',
+    9: '<i class="fas fa-birthday-cake"></i>',
+    10: '<i class="fas fa-bicycle"></i>'
+}
+
 $('#gridSelect').change(function () {
     let tx, ty, cardsAvailable;
     let selectedGrid = $(this).val();
@@ -44,7 +57,9 @@ function getCard() {
 function getTableCols(x, currentRow) {
     let cols;
     for (let i = 1; i <= x; i++) {
-        cols += `<td data-row="${i}"><div data-number="${getCard()}"><span>${getCard()}</span></div></td>`
+        //cols += `<td data-row="${i}"><div data-number="${getCard()}"><span>${getCard()}</span></div></td>`
+        cols += `<td data-row="${i}"><div data-number="${getCard()}"><span>
+        ${images[getCard()]}</span></div></td>`
         myArrOfCards.shift();
     }
     return cols;
